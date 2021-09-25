@@ -7,6 +7,8 @@ import java.util.stream.Stream;
 import ay2122s1_cs2103t_w16_2.btbb.commons.core.index.Index;
 import ay2122s1_cs2103t_w16_2.btbb.commons.util.StringUtil;
 import ay2122s1_cs2103t_w16_2.btbb.exception.ParseException;
+import ay2122s1_cs2103t_w16_2.btbb.model.booking.BookingDate;
+import ay2122s1_cs2103t_w16_2.btbb.model.booking.BookingSlot;
 import ay2122s1_cs2103t_w16_2.btbb.model.client.Address;
 import ay2122s1_cs2103t_w16_2.btbb.model.client.Email;
 import ay2122s1_cs2103t_w16_2.btbb.model.client.Name;
@@ -90,6 +92,40 @@ public class ParserUtil {
             throw new ParseException(Email.MESSAGE_CONSTRAINTS);
         }
         return new Email(trimmedEmail);
+    }
+
+    /**
+     * Parse a {@code String time} into a {@code BookingSlot}.
+     * Leading and trailing whitespaces will be trimmed.
+                                  *
+     * @param time to be parsed into a {@code BookingSlot}.
+     * @return BookingSlot whose start time is closest to the given input time.
+     * @throws ParseException if the given {@code time} is invalid.
+     */
+    public static BookingSlot parseTime(String time) throws ParseException {
+        requireNonNull(time);
+        String trimmedTime = time.trim();
+        if (!BookingSlot.isValidTime(trimmedTime)) {
+            throw new ParseException(BookingSlot.MESSAGE_CONSTRAINTS);
+        }
+        return BookingSlot.getNearestSlotFromTimeString(time);
+    }
+
+    /**
+     * Parse a {@code String date} into a {@code BookingDate}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @param date to be parsed into a {@code BookingDate}.
+     * @return BookingDate which represents the date of the booking
+     * @throws ParseException if the given {@code date} is invalid.
+     */
+    public static BookingDate parseDate(String date) throws ParseException {
+        requireNonNull(date);
+        String trimmedDate = date.trim();
+        if (!BookingDate.isValidBookingDate(trimmedDate)) {
+            throw new ParseException(BookingDate.MESSAGE_CONSTRAINTS);
+        }
+        return BookingDate.fromDateString(trimmedDate);
     }
 
     /**
