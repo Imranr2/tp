@@ -35,7 +35,7 @@ public class BookingDate {
      * @param test String to test.
      * @return true if a given string is a valid date in the specified format (dd-MM-yyyy).
      */
-    public boolean isValidBookingDate(String test) {
+    public static boolean isValidBookingDate(String test) {
         requireNonNull(test);
 
         try {
@@ -52,7 +52,7 @@ public class BookingDate {
      * @param bookingDateString String to be converted.
      * @return BookingDate that has been converted from a string.
      */
-    public BookingDate fromDateString(String bookingDateString) {
+    public static BookingDate fromDateString(String bookingDateString) {
         requireNonNull(bookingDateString);
 
         LocalDate bookingDate = LocalDate.parse(bookingDateString, DATE_FORMAT);

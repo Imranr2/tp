@@ -30,7 +30,7 @@ public enum BookingSlot {
     SLOT15(LocalTime.of(21, 0), LocalTime.of(22, 30)),
     SLOT16(LocalTime.of(22, 30), LocalTime.of(0, 0));
 
-    public static final String MESSAGE_CONSTRAINT =
+    public static final String MESSAGE_CONSTRAINTS =
             "Time should be of the format HHmm";
     public static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HHmm");
 
@@ -56,7 +56,7 @@ public enum BookingSlot {
      * @param test String to test.
      * @return true if a given string is a valid time in the specified format (HHmm).
      */
-    public boolean isValidTime(String test) {
+    public static boolean isValidTime(String test) {
         requireNonNull(test);
 
         try {
@@ -73,7 +73,7 @@ public enum BookingSlot {
      * @param bookingTimeString Time to be converted to a BookingSlot.
      * @return BookingSlot whose start time is within 45 minutes of the input booking time.
      */
-    public BookingSlot getNearestSlotFromTimeString(String bookingTimeString) {
+    public static BookingSlot getNearestSlotFromTimeString(String bookingTimeString) {
         requireNonNull(bookingTimeString);
 
         LocalTime bookingTime = LocalTime.parse(bookingTimeString);
