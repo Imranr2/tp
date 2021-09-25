@@ -13,6 +13,8 @@ import ay2122s1_cs2103t_w16_2.btbb.model.client.Phone;
  */
 public class Booking {
     private final Client client;
+    private BookingDate bookingDate;
+    private BookingSlot bookingSlot;
 
     /**
      * Constructs a booking.
@@ -24,12 +26,34 @@ public class Booking {
         this.client = client;
     }
 
+    /**
+     * Constructs a booking.
+     *
+     * @param client Pers
+     * @param bookingDate
+     * @param bookingSlot
+     */
+    public Booking(Client client, BookingDate bookingDate, BookingSlot bookingSlot) {
+        requireAllNonNull(client, bookingDate, bookingSlot);
+        this.client = client;
+        this.bookingDate = bookingDate;
+        this.bookingSlot = bookingSlot;
+    }
+
     private Client getClient() {
         return client;
     }
 
     public Phone getPhone() {
         return getClient().getPhone();
+    }
+
+    public BookingDate getBookingDate() {
+        return this.bookingDate;
+    }
+
+    public BookingSlot getBookingSlot() {
+        return this.bookingSlot;
     }
 
     @Override
