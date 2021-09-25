@@ -29,9 +29,9 @@ public class Booking {
     /**
      * Constructs a booking.
      *
-     * @param client Pers
-     * @param bookingDate
-     * @param bookingSlot
+     * @param client Person to whom this booking belongs to.
+     * @param bookingDate Date of the booking.
+     * @param bookingSlot Slot of the booking with a start time and end time.
      */
     public Booking(Client client, BookingDate bookingDate, BookingSlot bookingSlot) {
         requireAllNonNull(client, bookingDate, bookingSlot);
