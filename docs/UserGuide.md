@@ -148,6 +148,8 @@ Example:
 
 ### 4.3 Client
 
+![ClientCardLabelled](images/product-screenshots/ClientCardLabelled.png)
+
 #### 4.3.1 Adding a client: `add-c`
 
 Adds a client to the application.
@@ -236,6 +238,8 @@ Format: `list-c`
 
 ### 4.4 Ingredient
 
+![IngredientCardLabelled](images/product-screenshots/IngredientCardLabelled.png)
+
 #### 4.4.1 Adding an ingredient: `add-i`
 
 Adds an ingredient to the application.
@@ -323,6 +327,8 @@ Lists all ingredients in the application.
 Format: `list-i`
 
 ### 4.5 Order
+
+![OrderCardLabelled](images/product-screenshots/OrderCardLabelled.png)
 
 #### 4.5.1 Adding an order: `add-o`
 
@@ -527,6 +533,8 @@ Format: `undone-o INDEX`
 * `undone-o 1` Marks the order at index 1 in the order list currently shown as undone.
 
 ### 4.6 Recipe
+
+![RecipeardLabelled](images/product-screenshots/RecipeCardLabelled.png)
 
 #### 4.6.1 Adding a recipe: `add-r`
 
